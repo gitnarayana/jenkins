@@ -1,0 +1,163 @@
+
+
+Importent docker commands
+
+Build command:-
+
+these commands are used for building docker images using the docker file.
+
+It useses the base image based on which custamized images are built.
+
+docker build -t imagename
+
+to find the list of all docker images present on our machine 
+
+docker image ls
+
+to remove a image 
+
+docker rmi image_name
+
+To pull images from docker hub
+
+docker pull imagaename
+
+to login to the docker registry
+
+docker login my_registry:portnumber
+
+To rename a image 
+
+docker tag old_image_name New_image_name
+
+to push an image to docker registry
+
+docker push name_of__registry/image_name
+
+Docker run commands:-
+
+to start a container 
+
+docekr run imagename
+
+Options in run command
+
+docker run command 
+###########################################################################################
+
+ -rm is used for removing a container after we exit from container
+ -it is used for opening an interactive terminal in the container
+ -- name is used to give some cutomized name to the container
+ -p is used to expose the internal and external ports of the container
+    ex:- 8080:80 8080 is external port nummber 80 is internal port number
+ -v: is used to attach volumes to container. volumes are used to store the data which wil lremain even after the container distroyed.
+ -d: run the container in detached mode .. ie it runs in background.
+ -P: publish the ports of the container.
+ -e: to environment variables to the container 
+ -a: attach the container to standard input and standard output.
+
+###############################################################################################
+
+To stop docker containers need to give container_name/container_id
+
+docker kill container_name/container_id
+
+To restart the ed to give 
+
+docker restart container_name. 
+
+We can also restart the container after a specific time.
+
+docker restart -t 20 container_name
+
+To get into a container which already running in to the bash shell
+
+docker container exe -it container_name bash
+
+To find the ports of a container
+
+docker container port container_id/container_name
+
+To see the list of all the running containers
+
+docker container ls
+
+To see the list of all the containers that is running and stopped
+
+docker container ps 
+
+To find the list of all the networks present in networks
+
+docker network ls
+
+to find detiled information about specific network 
+
+docker netwok inspect networkname
+
+to find detailed information about container
+
+docker container inspect conatinername
+
+To create a newnetwok
+
+docker network create network_name
+
+To connect a contianer
+
+docker network connect networkname containername
+
+
+to disconnect a container from a network
+
+docker netwrok diconnect networkname containername
+
+
+to delete a existing network
+
+docker network rm networkname
+
+to find the loglocation
+
+docker logs containername
+
+to find the last 100 logs
+
+docker logs -tail 100 containername
+
+To find the version of dockeris 
+
+docker -version
+docker info
+
+Images and containers:
+############################################################################################
+
+Docker regisstry stores all the images in a location called as docker hub.
+
+this is the cloud site of docker.
+
+An image contains ths basic minimum packages necessary for running a single process.
+
+When this image is downloaded when we start the image then it is called as a container.
+
+Container is a running version of an image.
+
+##################################################################################################
+
+Components of docker
+
+Docker client:--
+
+This takes the docker commands and sents them to the docker deamon. These commands might be executing on the images and containers present in our own docker engine.or theymight be interacting with docker hub.
+
+Docker deamon
+
+docker deamon is background process controls the docker engine. it stores information about all the imahes and containers.
+
+Docker hub  
+
+This is the cloud site of docker where the docker community maintance all the docker images.
+
+Docekr local registry:-
+
+This is the priate section of docker cloud which can be maintained by individualas and organizations where they can store there customized images.
